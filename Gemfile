@@ -4,6 +4,7 @@ ruby '2.1.0'
 gem "sinatra"
 gem "sinatra-activerecord"
 gem "rake"
+gem "thin"
 
 group :development do
   gem "sqlite3"
