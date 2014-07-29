@@ -1,15 +1,18 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <h1>Kayıt sayısı: <%= @posts.count %></h1>
-            
+            <h1>Blog: <%= @posts.count %> kayıt</h1>
             <% if @posts.count > 0 %>
-                <ul class="list-unstyled">
-                    <% @posts.each do |post| %>
-                    <li><a href="/post/<%= post.id %>/"><%= post.title %></a></li>
-                    <% end %>
-                    
-                </ul>
+            <hr/>
+            <div class="post">
+                <% @posts.each do |post| %>
+                <h2>
+                    <a href="/post/<%= post.id %>/"><%= post.title %></a>
+                    <small><%= I18n.localize post.updated_at, :format => "%A, %B %d, %Y, %H:%M" %></small>
+                </h2>
+                <% end %>
+                
+            </div>
             <% end %>
         </div>
     </div>

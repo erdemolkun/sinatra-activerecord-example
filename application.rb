@@ -1,8 +1,21 @@
 require "sinatra/activerecord"
+require "i18n"
+require "i18n/backend/fallbacks"
 require "./models/post"
+
+Time.zone = "Istanbul"
+ActiveRecord::Base.default_timezone = :local
 
 class MyApplication < Sinatra::Base
   register Sinatra::ActiveRecordExtension
+  
+  configure do
+    I18n.enforce_available_locales = false
+    I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+    I18n.load_path = Dir[File.join(settings.root, 'locales', '*.yml')]
+    I18n.backend.load_translations
+    I18n.locale = :tr
+  end
   
   configure :development do
     set :database, {adapter: "sqlite3", database: "test.sqlite3"}

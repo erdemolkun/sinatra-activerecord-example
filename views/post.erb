@@ -1,10 +1,14 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <h1><%= @post.title %></h1>
-            <div><%= @post.description %></div>
-            <p><small><%= @post.updated_at.strftime("%A, %d %B %Y, %H:%M") %></small></p>
-            <a href="/">Geri dön</a>
+            <div class="post">
+                <h1>
+                    <%= @post.title %>
+                    <small><%= I18n.localize @post.updated_at, :format => "%A, %B %d, %Y, %H:%M" %></small>
+                </h1>
+                <%= markdown @post.description %>
+            </div>
+            <a class="btn btn-primary" href="/">Geri dön</a>
         </div>
     </div>
 </div>

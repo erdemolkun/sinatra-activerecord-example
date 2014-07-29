@@ -5,6 +5,8 @@ gem "sinatra"
 gem "sinatra-activerecord"
 gem "rake"
 gem "thin"
+gem "i18n"
+gem "redcarpet"
 
 group :development do
   gem "sqlite3"
