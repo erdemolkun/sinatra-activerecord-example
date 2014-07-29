@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Post amount: <%= @posts.count %></h1>
+            
+            <% if @posts.count > 0 %>
+                <ul class="list-unstyled">
+                    <% @posts.each do |post| %>
+                    <li><a href="/post/<%= post.id %>/"><%= post.title %></a></li>
+                    <% end %>
+                    
+                </ul>
+            <% end %>
+        </div>
+    </div>
+</div>

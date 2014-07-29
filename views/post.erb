@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1><%= @post.title %></h1>
+            <div><%= @post.description %></div>
+            <p><small><%= @post.updated_at.strftime("%A, %d %B %Y, %H:%M") %></small></p>
+            <a href="/">Go back to home</a>
+        </div>
+    </div>
+</div>
