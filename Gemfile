@@ -12,6 +12,6 @@ end
 
 # heroku
 group :production do
-  gem "pg"
   gem "activerecord"
+  gem "pg"
 end
