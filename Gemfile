@@ -9,3 +9,9 @@ group :development do
   gem "shotgun"
   gem "tux"
 end
+
+# heroku
+group :production do
+  gem "pg"
+  gem "activerecord"
+end
