@@ -37,6 +37,15 @@ restart your app : `heroku ps:restart web` and re-run seeding `heroku run rake d
 My example app : [http://still-bayou-4809.herokuapp.com](http://still-bayou-4809.herokuapp.com)
 
 
+## Updates
+
+**2014-07-30**
+
+* Add/Edit and Delete post options added
+* Required fields and validation added
+
+
+
 [1]: https://github.com/janko-m/sinatra-activerecord
 [2]: https://github.com/cldwalker/tux
 [3]: http://www.sinatrarb.com/

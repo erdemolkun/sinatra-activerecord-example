@@ -8,7 +8,14 @@
                 </h1>
                 <%= markdown @post.description %>
             </div>
-            <a class="btn btn-primary" href="/">Geri dön</a>
+            <a class="btn btn-success" href="/post/edit/<%= @post.id %>/">Düzenle</a>
+            <a class="btn btn-primary" href="/">Geri dön</a><br/><br/>
+            
+            <form action="/post/<%= @post.id %>" method="post">
+                <input type="hidden" name="_method" value="delete" /> 
+                <button class="btn btn-warning">Sil</button>
+            </form>
+            
         </div>
     </div>
 </div>
