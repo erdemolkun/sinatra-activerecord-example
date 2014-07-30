@@ -48,11 +48,7 @@ class MyApplication < Sinatra::Base
   end
   
   post "/post/" do
-    safe_data = {}
-    params[:post].map do |k,v|
-      safe_data[k] = h(v)
-    end
-    @post = Post.new(safe_data)
+    @post = Post.new(params[:post])
     if @post.save
       redirect "/post/#{@post.id}/"
     else
@@ -76,12 +72,8 @@ class MyApplication < Sinatra::Base
   end
   
   put "/post/:id/" do
-    safe_data = {}
-    params[:post].map do |k,v|
-      safe_data[k] = h(v)
-    end
     @post = Post.find(params[:id])
-    if @post.update_attributes(safe_data)
+    if @post.update_attributes(params[:post])
       redirect "/post/#{@post.id}/"
     else
       erb :post_edit
