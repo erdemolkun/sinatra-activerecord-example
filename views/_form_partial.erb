@@ -1,0 +1,20 @@
+<div class="form-group">
+    <label for="blog_title">Başlık</label>
+    <input name="post[title]" type="text" class="form-control" id="blog_title" placeholder="Başlık" value="<%= @post.title %>" />
+    <% if @post.errors.messages[:title] %>
+        <div class="error alert alert-danger">
+            <strong>Hata</strong><br/>
+            <%= @post.errors.messages[:title].join('<br/>') %>
+        </div>
+    <% end %>
+</div>
+<div class="form-group">
+    <label for="blog_description">Açıklama</label>
+    <textarea name="post[description]" rows="10" class="form-control" id="blog_description"><%= @post.description %></textarea>
+    <% if @post.errors.messages[:description] %>
+        <div class="error alert alert-danger">
+            <strong>Hata</strong><br/>
+            <%= @post.errors.messages[:description].join('<br/>') %>
+        </div>
+    <% end %>
+</div>

@@ -18,3 +18,7 @@
 .post h1 small {
     display: block;
 }
+
+.error {
+    margin-top: 1em;
+}

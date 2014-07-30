@@ -5,27 +5,9 @@
                 <h1>Düzenle</h1>
                 <form action="/post/<%= @post.id %>/" method="post" role="form">
                     <input type="hidden" name="_method" value="put" />
-                    <div class="form-group">
-                        <label for="blog_title">Başlık</label>
-                        <input name="post[title]" type="text" class="form-control" id="blog_title" placeholder="Başlık" value="<%= @post.title %>"/>
-                        <% if @post.errors.messages[:title] %>
-                            <div class="alert alert-danger">
-                                <strong>Hata</strong><br/>
-                                <%= @post.errors.messages[:title].join('<br/>') %>
-                            </div>
-                        <% end %>
-                    </div>
-                    <div class="form-group">
-                        <label for="blog_description">Açıklama</label>
-                        <textarea name="post[description]" rows="10" class="form-control" id="blog_description"><%= @post.description %></textarea>
-                        <% if @post.errors.messages[:description] %>
-                            <div class="alert alert-danger">
-                                <strong>Hata</strong><br/>
-                                <%= @post.errors.messages[:description].join('<br/>') %>
-                            </div>
-                        <% end %>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                    <%= partial "form_partial", {post: @post} %>
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                    <a href="/" class="btn btn-warning">Geri Dön</a>
                 </form>
             </div>
         </div>
