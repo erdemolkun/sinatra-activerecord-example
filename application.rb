@@ -40,6 +40,9 @@ class MyApplication < Sinatra::Base
     def h(html)
       Rack::Utils.escape_html html
     end
+    def unescape_html(text)
+      CGI.unescapeHTML text
+    end
     
     def partial(template, locals = {})
       erb "_#{template.to_sym}".to_sym, :layout => false, :locals => locals

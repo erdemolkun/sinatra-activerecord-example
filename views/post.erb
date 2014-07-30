@@ -6,7 +6,8 @@
                     <%= @post.title %>
                     <small><%= I18n.localize @post.updated_at, :format => "%A, %B %d, %Y, %H:%M" %></small>
                 </h1>
-                <%= markdown @post.description %>
+
+                <%= unescape_html markdown @post.description %>
             </div>
             <form action="/post/<%= @post.id %>" method="post">
                 <input type="hidden" name="_method" value="delete" /> 
