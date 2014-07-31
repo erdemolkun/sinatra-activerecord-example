@@ -1,3 +1,4 @@
+<input type="hidden" name="authenticity_token" value="<%= session[:csrf] %>">
 <div class="form-group">
     <label for="blog_title">Başlık</label>
     <input name="post[title]" type="text" class="form-control" id="blog_title" placeholder="Başlık" value="<%= @post.title %>" />
