@@ -39,6 +39,10 @@ My example app : [http://still-bayou-4809.herokuapp.com](http://still-bayou-4809
 
 ## Updates
 
+**2014-07-31**
+
+* Rack CRSF protection added
+
 **2014-07-30**
 
 * Add/Edit and Delete post options added
