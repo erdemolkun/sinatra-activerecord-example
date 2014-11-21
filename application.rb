@@ -3,12 +3,17 @@ require "i18n"
 require "i18n/backend/fallbacks"
 require "./models/post"
 
+require 'will_paginate'
+require 'will_paginate/active_record'
+require 'will_paginate-bootstrap'
+
 Time.zone = "Istanbul"
 ActiveRecord::Base.default_timezone = :local
 
 class MyApplication < Sinatra::Base
+  helpers WillPaginate::Sinatra::Helpers
   register Sinatra::ActiveRecordExtension
-  
+
   # put, delete etc verbs...
   set :method_override, true
   
@@ -50,7 +55,7 @@ class MyApplication < Sinatra::Base
   end
   
   get "/" do
-    @posts = Post.order(updated_at: :desc).all
+    @posts = Post.order(updated_at: :desc).paginate(:page => params[:page], :per_page => 5)
     erb :index
   end
   

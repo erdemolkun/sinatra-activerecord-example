@@ -12,9 +12,11 @@
                 </h2>
                 <% end %>
             </div>
+            
+            <%= will_paginate @posts, renderer: BootstrapPagination::Sinatra %>
             <% end %>
             
-            <a href="/post/new/" class="btn btn-primary">Yeni Kayıt</a>
+            <p><a href="/post/new/" class="btn btn-primary">Yeni Kayıt</a></p>
         </div>
     </div>
 </div>
