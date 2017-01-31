@@ -34,7 +34,7 @@ You can set **Time Zone** information via;
 `heroku config:add TZ="Europe/Istanbul` # for İstanbul. After this, please
 restart your app : `heroku ps:restart web` and re-run seeding `heroku run rake db:seed`
 
-My example app : [http://still-bayou-4809.herokuapp.com](http://still-bayou-4809.herokuapp.com)
+My example app : [https://sinatra-tests.herokuapp.com/](https://sinatra-tests.herokuapp.com/)
 
 
 ## Updates
