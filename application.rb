@@ -6,6 +6,7 @@ require "./models/post"
 require 'will_paginate'
 require 'will_paginate/active_record'
 require 'will_paginate-bootstrap'
+require 'json'
 
 Time.zone = "Istanbul"
 ActiveRecord::Base.default_timezone = :local
@@ -83,8 +84,11 @@ class MyApplication < Sinatra::Base
     erb :post
   end
   
-  get "/post/count" do
-    puts "n tane post var"
+  get "/api/v1/post/count" do
+  
+    content_type :json
+    { :count => '{@post.count}'}.to_json
+  
   end
   
   put "/post/:id/" do
