@@ -7,6 +7,8 @@ require 'will_paginate'
 require 'will_paginate/active_record'
 require 'will_paginate-bootstrap'
 require 'json'
+require 'httpparty'
+require 'nokogiri'
 
 Time.zone = "Istanbul"
 ActiveRecord::Base.default_timezone = :local
@@ -99,6 +101,10 @@ class MyApplication < Sinatra::Base
   get "/api/v1/posts/:id/" do
     @post = Post.find(params[:id])
     @post.to_json
+  end
+
+  get "/api/v1/test" do
+    response = HTTParty.get 'http://www.finansbank.enpara.com/doviz-kur-bilgileri/doviz-altin-kurlari.aspx'
   end
   
   put "/post/:id/" do
