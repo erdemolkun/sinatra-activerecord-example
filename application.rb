@@ -88,7 +88,7 @@ class MyApplication < Sinatra::Base
   get "/api/v1/post/count" do
    @post = Post.all.count
     content_type :json
-    { :count => '{@post}'}.to_json
+    { :count => '#{@post}'}.to_json
   
   end
 
