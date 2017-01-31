@@ -90,6 +90,10 @@ class MyApplication < Sinatra::Base
     { :count => '{@post.count}'}.to_json
   
   end
+
+  get "/api/v1/posts" do
+    Post.all.to_json
+  end
   
   put "/post/:id/" do
     @post = Post.find(params[:id])
