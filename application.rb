@@ -103,7 +103,7 @@ class MyApplication < Sinatra::Base
   end
 
   get "/api/v1/test" do
-    response = HTTParty.get 'http://www.finansbank.enpara.com/doviz-kur-bilgileri/doviz-altin-kurlari.aspx'
+    response = HTTParty.get 'https://www.google.com.tr'
   end
   
   put "/post/:id/" do
