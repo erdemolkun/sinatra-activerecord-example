@@ -86,9 +86,9 @@ class MyApplication < Sinatra::Base
   
   # Api Endopints
   get "/api/v1/post/count" do
-   @post = Post.all.count
+    post_count = Post.all.count
     content_type :json
-    { :count => '#{@post}'}.to_json
+    { :count => '#{@post_count}'}.to_json
   
   end
 
