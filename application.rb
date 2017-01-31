@@ -84,15 +84,21 @@ class MyApplication < Sinatra::Base
     erb :post
   end
   
+  # Api Endopints
   get "/api/v1/post/count" do
-   @post = Post.all
+   @post = Post.all.count
     content_type :json
-    { :count => '{@post.count}'}.to_json
+    { :count => '{@post}'}.to_json
   
   end
 
   get "/api/v1/posts" do
     Post.all.to_json
+  end
+
+  get "/api/v1/posts/:id/" do
+    @post = Post.find(params[:id])
+    @post.to_json
   end
   
   put "/post/:id/" do
