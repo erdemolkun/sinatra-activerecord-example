@@ -1,8 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    httparty (0.14.0)
-    nokogiri (1.7.0.1)
     activemodel (4.1.4)
       activesupport (= 4.1.4)
       builder (~> 3.1)
@@ -21,9 +19,12 @@ GEM
     builder (3.2.2)
     daemons (1.1.9)
     eventmachine (1.0.3)
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     json (1.8.1)
     minitest (5.4.0)
+    multi_xml (0.6.0)
     pg (0.17.1)
     rack (1.5.2)
     rack-protection (1.5.3)
@@ -72,6 +73,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  httparty
   i18n
   pg
   rake
@@ -84,3 +86,9 @@ DEPENDENCIES
   tux
   will_paginate (~> 3.0.5)
   will_paginate-bootstrap
+
+RUBY VERSION
+   ruby 2.0.0p648
+
+BUNDLED WITH
+   1.13.6
