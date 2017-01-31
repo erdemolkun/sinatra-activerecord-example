@@ -8,7 +8,6 @@ require 'will_paginate/active_record'
 require 'will_paginate-bootstrap'
 require 'json'
 require 'httparty'
-require 'nokogiri'
 
 Time.zone = "Istanbul"
 ActiveRecord::Base.default_timezone = :local
