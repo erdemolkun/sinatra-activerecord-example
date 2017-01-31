@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    httpparty
+    httparty
     nokogiri
     activemodel (4.1.4)
       activesupport (= 4.1.4)

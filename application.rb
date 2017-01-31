@@ -7,7 +7,7 @@ require 'will_paginate'
 require 'will_paginate/active_record'
 require 'will_paginate-bootstrap'
 require 'json'
-require 'httpparty'
+require 'httparty'
 require 'nokogiri'
 
 Time.zone = "Istanbul"
