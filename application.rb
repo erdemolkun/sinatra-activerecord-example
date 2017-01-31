@@ -83,6 +83,10 @@ class MyApplication < Sinatra::Base
     erb :post
   end
   
+  get "/post/count" do
+    puts "n tane post var"
+  end
+  
   put "/post/:id/" do
     @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
