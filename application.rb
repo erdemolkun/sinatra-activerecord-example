@@ -11,6 +11,16 @@ require 'httparty'
 require 'nokogiri'
 require './Enpara'
 
+class Garanti < Fetcher
+  def all_rates
+    cached = get_from_cache
+    return cached if cached
+  
+    data = {name: "helo"}
+    cache! data
+  end
+end
+
 Time.zone = "Istanbul"
 ActiveRecord::Base.default_timezone = :local
 
@@ -105,9 +115,16 @@ class MyApplication < Sinatra::Base
     @post.to_json
   end
 
-  get "/api/v1/rates/enpara" do
+  get "/api/v1/rates/:name" do
     content_type :json
-    { rates:Enpara.new.get_rate }.to_json
+    rates = eval(params[:name].capitalize).new.all_rates
+    if rates.present?
+      { rates:rates }.to_json
+    else
+      status 403
+      { message:"Unknown Exception",code:1 }.to_json
+    end
+      
   end
   
   put "/post/:id/" do

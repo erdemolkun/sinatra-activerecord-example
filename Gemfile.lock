@@ -17,6 +17,7 @@ GEM
     arel (6.0.4)
     bond (0.5.1)
     builder (3.2.3)
+    byebug (9.0.6)
     daemons (1.2.4)
     eventmachine (1.2.2)
     httparty (0.14.0)
@@ -76,6 +77,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  byebug
   httparty
   i18n
   nokogiri
