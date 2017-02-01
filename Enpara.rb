@@ -1,7 +1,6 @@
 require './BuySellRate'
 require './RateHolder'
 require './ArrayWithTime'
-require 'time'
 
 class Enpara
   

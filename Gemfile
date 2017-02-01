@@ -11,7 +11,6 @@ gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap'
 gem 'httparty'
 gem 'nokogiri'
-gem 'time'
 
 group :development do
   gem "sqlite3"
