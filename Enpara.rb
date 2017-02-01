@@ -1,6 +1,6 @@
 require './buysellrate'
 require './rateholder'
-require './arraywithtime'
+require './rateholderwithtime'
 
 class Enpara
   
@@ -21,49 +21,32 @@ end
         #puts "Time Diff #{diff}"
         if diff < 1.25 # Defined in milliseconds
           puts "Using cache"
-          return Enpara.array_with_time.array  
+          return Enpara.array_with_time.anything  
         end
       end
       
       puts "Fetching New Data"
       response = HTTParty.get 'http://www.finansbank.enpara.com/doviz-kur-bilgileri/doviz-altin-kurlari.aspx'
       doc = Nokogiri::HTML response
-      rate_array = Array.new
+      rates = Array.new
       
       doc.css('#pnlContent span dl').each do |row|
 
         if (row.css('dt').text) == "USD"
-
-          rateholder = RateHolder.new
-          rate = BuySellRate.new
-          rate.buy = row.css('dd').first.text.split(' ').first;
-          rate.sell = row.css('dd').last.text.split(' ').first;
-          rateholder.type = 1
-          rateholder.rate = rate
-          rate_array << rateholder
-
+          rate = BuySellRate.new(row.css('dd').first.text.split(' ').first,row.css('dd').last.text.split(' ').first)
+          rates << RateHolder.new(1,rate)
         elsif (row.css('dt').text)=="EUR"
-
-          rateholder = RateHolder.new
-          rate = BuySellRate.new
-          rate.buy = row.css('dd').first.text.split(' ').first
-          rate.sell = row.css('dd').last.text.split(' ').first
-          rateholder.type = 2
-          rateholder.rate = rate
-          rate_array << rateholder
+          rate = BuySellRate.new(row.css('dd').first.text.split(' ').first,row.css('dd').last.text.split(' ').first)
+          rates << RateHolder.new(2,rate)
         end 
       end
       #{dollar_sell: dollar_sell, dollar_buy: dollar_buy,eur_buy: eur_buy,eur_sell: eur_sell}.to_json
-      Enpara.array_with_time = ArrayWithTime.new
-      Enpara.array_with_time.array = rate_array
-      Enpara.array_with_time.time = Time.now
-
-      rate_array
+      Enpara.array_with_time = RateHolderWithTime.new(Time.now,rates)
+      rates
     rescue Exception => e
       puts e
       "Uknown error!!!"
     end 
   end
-
 
 end
