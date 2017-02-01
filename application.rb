@@ -88,7 +88,7 @@ class MyApplication < Sinatra::Base
     erb :post
   end
   
-  # Api Endopints
+  # Api Endpoints
   get "/api/v1/post/count" do
     post_count = Post.all.count
     content_type :json
@@ -106,7 +106,8 @@ class MyApplication < Sinatra::Base
   end
 
   get "/api/v1/rates/enpara" do
-    Enpara.new.rate_2
+    content_type :json
+    Enpara.new.rate
   end
   
   put "/post/:id/" do
