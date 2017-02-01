@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.5'
 
 gem 'sinatra'
 gem 'sinatra-activerecord'
@@ -10,6 +10,7 @@ gem 'redcarpet'
 gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap'
 gem 'httparty'
+gem 'nokogiri'
 
 group :development do
   gem "sqlite3"
