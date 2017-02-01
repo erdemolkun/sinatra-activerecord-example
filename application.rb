@@ -108,12 +108,14 @@ class MyApplication < Sinatra::Base
       response = HTTParty.get 'http://www.finansbank.enpara.com/doviz-kur-bilgileri/doviz-altin-kurlari.aspx'
       doc = Nokogiri::HTML response
       result = String.new
-      dollar_buy
-      dollar_sell
+      dollar_buy=""
+      dollar_sell=""
       doc.css('#pnlContent span dl').each do |row|
         if (row.css('dt').text)=="USD"
           dollar_buy = row.css('dd').first.text.split(' ').first
           dollar_sell = row.css('dd').last.text.split(' ').first
+          puts dollar_sell
+          puts dollar_buy
           result+="#{row.css('dd').first.text.split(' ').first} : #{row.css('dd').last.text.split(' ').first}"
         elsif (row.css('dt').text)=="EUR"
           result+=" - #{row.css('dd').first.text.split(' ').first} : #{row.css('dd').last.text.split(' ').first}"
