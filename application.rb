@@ -112,8 +112,8 @@ class MyApplication < Sinatra::Base
       dollar_sell
       doc.css('#pnlContent span dl').each do |row|
         if (row.css('dt').text)=="USD"
-          dollar_buy = "#{row.css('dd').first.text.split(' ').first}"
-          dollar_sell = "#{row.css('dd').first.text.split(' ').first}"
+          dollar_buy = row.css('dd').first.text.split(' ').first
+          dollar_sell = row.css('dd').last.text.split(' ').first
           result+="#{row.css('dd').first.text.split(' ').first} : #{row.css('dd').last.text.split(' ').first}"
         elsif (row.css('dt').text)=="EUR"
           result+=" - #{row.css('dd').first.text.split(' ').first} : #{row.css('dd').last.text.split(' ').first}"
