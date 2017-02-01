@@ -1,6 +1,6 @@
-require './BuySellRate'
-require './RateHolder'
-require './ArrayWithTime'
+require './buysellrate'
+require './rateholder'
+require './arraywithtime'
 
 class Enpara
   
