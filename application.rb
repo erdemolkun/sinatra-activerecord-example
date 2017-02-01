@@ -122,8 +122,7 @@ class MyApplication < Sinatra::Base
         end 
         content_type :json
         { :dollar_sell => dollar_sell,:dollar_buy => dollar_buy }.to_json
-    end
-    result 
+    end 
     rescue Exception => e
       "Error Occured!!!"
     end 
