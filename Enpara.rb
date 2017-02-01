@@ -18,8 +18,9 @@ end
       puts Time.current
       puts "Start Function"
       if Enpara.array_with_time.present? 
-        diff=(Time.current-Enpara.array_with_time.time).to_i
-        if diff < 6
+        diff=(Time.now-Enpara.array_with_time.time).to_f
+        #puts "Time Diff #{diff}"
+        if diff < 1.25 # Defined in milliseconds
           puts "Using cache"
           return Enpara.array_with_time.array  
         end
@@ -56,7 +57,7 @@ end
       #{dollar_sell: dollar_sell, dollar_buy: dollar_buy,eur_buy: eur_buy,eur_sell: eur_sell}.to_json
       Enpara.array_with_time = ArrayWithTime.new
       Enpara.array_with_time.array = rate_array
-      Enpara.array_with_time.time = Time.current
+      Enpara.array_with_time.time = Time.now
 
       rate_array
     rescue Exception => e
