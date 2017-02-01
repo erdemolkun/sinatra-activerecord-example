@@ -92,7 +92,7 @@ class MyApplication < Sinatra::Base
   get "/api/v1/post/count" do
     post_count = Post.all.count
     content_type :json
-    { :count => post_count }.to_json
+    { count: post_count }.to_json
   
   end
 
@@ -107,7 +107,7 @@ class MyApplication < Sinatra::Base
 
   get "/api/v1/rates/enpara" do
     content_type :json
-    Enpara.new.rate
+    { rates:Enpara.new.get_rate }.to_json
   end
   
   put "/post/:id/" do
