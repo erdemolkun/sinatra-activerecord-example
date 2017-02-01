@@ -115,9 +115,9 @@ class MyApplication < Sinatra::Base
         end 
        
     end
-    puts result 
+    result 
     rescue Exception => e
-      puts "Error Occured!!!"
+      "Error Occured!!!"
     end 
   end
   
